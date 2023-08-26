@@ -10,4 +10,3 @@ export class BotaoControleComponent {
   @Input() src = '';
   @Input() alt = '';
 }
-
