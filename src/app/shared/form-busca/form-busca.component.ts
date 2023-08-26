@@ -7,10 +7,10 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
   styleUrls: ['./form-busca.component.scss']
 })
 export class FormBuscaComponent {
-  constructor( 
+  constructor(
     public formBuscaService : FormBuscaService) {}
 
   buscar () {
-    console.log(this.formBuscaService.formBusca.value)
+    //console.log(this.formBuscaService.formBusca.value)
   }
 }

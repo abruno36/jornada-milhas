@@ -6,7 +6,7 @@ ul {
       margin-bottom: 10px;
       margin: 12px;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 20px;
       color: #1D1B20;
       text-align: start;
@@ -14,6 +14,9 @@ ul {
       span {
         vertical-align: middle;
         padding: 0 12px;
+      }
+      li.subtitulo{
+        font-size: 8px;
       }
     }
   }
