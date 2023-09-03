@@ -8,18 +8,30 @@
     flex: 1 1 auto;
   }
 
-  img {
-    cursor: pointer;
-  }
-
   .mat-toolbar {
     background-color: black;
     color: white;
     padding: 0 256px;
   }
 
-  .mat-mdc-outlined-button:not(:disabled) {
-    border-color: white;
+  .links-toolbar > * {
+    margin-right: 20px;
   }
+
+  .links-toolbar > *:first-child {
+    margin-right: 0;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  .mat-mdc-outlined-button:not(:disabled) {
+    border-color: #673ab7;
+    color: #673ab7;
+  }
+
 }
+
+
 
