@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 import { Promocao } from 'src/app/core/types/type';
 
 @Component({
@@ -8,4 +9,7 @@ import { Promocao } from 'src/app/core/types/type';
 })
 export class CardBuscaComponent {
   @Input() promocao!: Promocao;
+
+  constructor(
+    public formBuscaService : FormBuscaService) {}
 }

@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import  localePt  from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,15 +27,27 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule  } from '@angular/material/radio';
+import { MatDividerModule   } from '@angular/material/divider';
+import { MatCheckboxModule    } from '@angular/material/checkbox';
 
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
+import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
+import { registerLocaleData } from '@angular/common';
+import { ModalDetailComponent } from './shared/card-busca/modal-detail/modal-detail.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormBaseComponent } from './shared/form-base/form-base.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
 
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +65,12 @@ import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.compo
     PromocoesComponent,
     DropdownUfComponent,
     SeletorPassageiroComponent,
-    DepoimentosComponent
+    DepoimentosComponent,
+    ModalDetailComponent,
+    LoginComponent,
+    FormBaseComponent,
+    CadastroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -71,9 +89,15 @@ import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.compo
     MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatCheckboxModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR' }, provideNgxMask(),
+              {provide: HTTP_INTERCEPTORS, useClass: AutenticacaoInterceptor, multi: true}],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

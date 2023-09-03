@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatChipSelectionChange } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
+import { ModalDetailComponent } from 'src/app/shared/card-busca/modal-detail/modal-detail.component';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Injectable({
@@ -73,6 +74,12 @@ export class FormBuscaService {
 
   openDialog() {
     this.dialog.open(ModalComponent, {
+      width: '50%'
+    })
+  }
+
+  openDialogDetail() {
+    this.dialog.open(ModalDetailComponent, {
       width: '50%'
     })
   }

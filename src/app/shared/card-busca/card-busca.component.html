@@ -3,10 +3,13 @@
   <mat-card-content>
     <ul>
       <li>{{promocao.destino}}</li>
-      <li>R$ {{promocao.preco }}</li>
+      <li style="font-size: 12px; margin: 0 0 -23px;">Em 12x sem juros de</li>
+      <li>{{promocao.precocartao / 12 | currency: "BRL"}} </li>
+      <li style="font-size: 12px; margin: 0 0 -23px;">À vista c/ desconto</li>
+      <li>{{promocao.precoprom | currency: "BRL"}}</li>
     </ul>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="primary">VER DETALHES</button>
+    <button mat-flat-button color="primary" (click)="formBuscaService.openDialogDetail()">VER DETALHES</button>
   </mat-card-actions>
 </mat-card>
